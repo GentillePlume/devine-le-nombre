@@ -76,4 +76,16 @@
 
 <script src="system.js"></script>
 
+<script>
+    const player_input = document.getElementById("player-input");
+    player_input.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+
+            if (parseInt(document.getElementById("player-input").value)) {
+                check();
+            }
+        }
+    });
+</script>
+
 </html>

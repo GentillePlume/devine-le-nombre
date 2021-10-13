@@ -85,15 +85,18 @@ function generate_number() {
 function check() {
   console.log("##### CHECK FUNCTION #####");
 
-  let input_value = document.getElementById("player-input").value;
-  console.log("Get value : " + input_value);
-  console.log("Target : " + target);
+  let input_value = parseInt(document.getElementById("player-input").value);
+  
+  if (input_value) {
+    console.log("Get value : " + input_value);
+    console.log("Target : " + target);
 
-  if (input_value < target) {
-    console.log("plus grand");
-  } else if (input_value > target) {
-    console.log("plus petit");
-  } else{
+    if (input_value < target) {
+      console.log("plus grand");
+    } else if (input_value > target) {
+      console.log("plus petit");
+    } else {
       success();
+    }
   }
 }
