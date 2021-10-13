@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Devine le nombre !</title>
+
+    <link rel="shortcut icon" type="image/jpg" href="assets/favicon.ico" />
+
+    <link rel="stylesheet" href="ploume.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="fullscreen">
+
+    <div class="container h-full flex-c v-centered">
+
+        <h1 class="title">Devine le nombre !</h1>
+
+        <div class="settings flex-r wrap p-3">
+            <h2 class="w-full bold is-3-xs">Paramètres</h2>
+
+            <div class="settings__group settings__group--ladder">
+
+                <h2 class="settings__group_title">Plage de valeurs</h2>
+
+                <p class="control has-icon-left">
+                    <input id="minimum" class="input" type="number" placeholder="Minimale" value="1">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-long-arrow-alt-down"></i>
+
+                    </span>
+                </p>
+
+                <p class="control has-icon-left">
+                    <input id="maximum" class="input" type="number" placeholder="Maximale" value="100">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-long-arrow-alt-up"></i>
+                    </span>
+                </p>
+
+            </div>
+
+            <div class="settings__group settings__group--chances">
+                <h2 class="settings__group_title">Nombre de tentatives</h2>
+
+                <p class="control has-icon-left">
+                    <input id="attempts" class="input" type="number" placeholder="Nombre" value="10">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-redo"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="settings__controls w-full mt-3-xs">
+                <button class="button is-success is-bordered" onclick="launch()">Lancer le jeu</button>
+            </div>
+
+        </div>
+
+        <div class="play mv-auto flex-c">
+            <input id="player-input" class="input play__input" type="number" placeholder="1">
+            <button class="button is-success w-full" onclick="check()">Vérifier</button>
+        </div>
+
+
+    </div>
+
+</body>
+
+<script src="system.js"></script>
+
+</html>
