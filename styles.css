@@ -1,0 +1,51 @@
+.title {
+  font-size: 5rem;
+}
+
+.input {
+  background-color: #F3F7FD;
+  border: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.settings {
+  border: 1px solid #F3F7FD;
+}
+
+.settings__group {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.settings__group_title {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.settings__group .control .input {
+  border-radius: .25rem;
+  margin-right: .5rem;
+}
+
+.settings__group .control .input:last-child {
+  margin-right: 0;
+}
+
+.play__input {
+  height: 10rem;
+  padding: 3rem;
+  width: 10rem;
+  font-size: 5rem;
+  text-align: center;
+}
