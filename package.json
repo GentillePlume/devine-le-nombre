@@ -1,0 +1,34 @@
+{
+  "name": "devine-le-nombre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output styles.css styles.css",
+    "build-cleancss": "cleancss -o styles.css styles.css",
+    "build-clean": "rimraf css",
+    "build-sass": "node-sass --output-style expanded sass/styles.sass styles.css",
+    "deploy": "npm run build",
+    "start": "npm run build-sass -- --watch",
+    "keppler": "keppler"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "clean-css-cli": "^4.3.0",
+    "keppler": "^1.4.3",
+    "node-sass": "^6.0.1",
+    "postcss-cli": "^9.0.1",
+    "rimraf": "^2.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GentillePlume/devine-le-nombre.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GentillePlume/devine-le-nombre/issues"
+  },
+  "homepage": "https://github.com/GentillePlume/devine-le-nombre#readme"
+}
