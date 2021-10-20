@@ -19,57 +19,103 @@
 
 <body class="fullscreen">
 
-    <div class="container h-full flex-c v-centered">
+    <header class="header">
 
-        <h1 class="title">Devine le nombre !</h1>
+        <div class="container h-full flex-c v-centered">
 
-        <div class="settings flex-r wrap p-3">
-            <h2 class="w-full bold is-3-xs">Paramètres</h2>
+            <h1 class="title uppercase">Devine le nombre</h1>
 
-            <div class="settings__group settings__group--ladder">
+            <div id="settings" class="settings flex-r wrap p-3">
+                <h2 class="w-full bold is-3-xs">Paramètres</h2>
 
-                <h2 class="settings__group_title">Plage de valeurs</h2>
+                <div class="settings__group settings__group--ladder">
 
-                <p class="control has-icon-left">
-                    <input id="minimum" class="input" type="number" placeholder="Minimale" value="1">
-                    <span class="icon is-small is-left">
+                    <h2 class="settings__group_title">Plage de valeurs</h2>
+
+                    <p class="control has-icon-left">
+                        <input id="settings__minimum" class="input" type="number" placeholder="Minimale" value="1">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-long-arrow-alt-down"></i>
+
+                        </span>
+                    </p>
+
+                    <p class="control has-icon-left">
+                        <input id="settings__maximum" class="input" type="number" placeholder="Maximale" value="100">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-long-arrow-alt-up"></i>
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="settings__group settings__group--chances">
+                    <h2 class="settings__group_title">Nombre de tentatives</h2>
+
+                    <p class="control has-icon-left">
+                        <input id="settings__attempts" class="input" type="number" placeholder="Nombre" value="10">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-redo"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="settings__controls w-full mt-3-xs">
+                    <button class="button is-success is-bordered" onclick="launch()">Lancer le jeu</button>
+                </div>
+
+            </div>
+
+            <div id="rules" class="rules flex-r wrap p-3">
+                <h2 class="w-full bold is-3-xs">Règles</h2>
+
+                <div class="rules__parameter">
+                    <span class="rules__parameter_icon">
                         <i class="fas fa-long-arrow-alt-down"></i>
-
                     </span>
-                </p>
+                    <p id="rules__minimum" class="rules__parameter_value">1</p>
+                </div>
 
-                <p class="control has-icon-left">
-                    <input id="maximum" class="input" type="number" placeholder="Maximale" value="100">
-                    <span class="icon is-small is-left">
+                <div class="rules__parameter">
+                    <span class="rules__parameter_icon">
                         <i class="fas fa-long-arrow-alt-up"></i>
                     </span>
-                </p>
+                    <p id="rules__maximum" class="rules__parameter_value">100</p>
+                </div>
 
+                <div class="rules__attempts flex-c">
+                    <h3 class="w-full">Essais</h3>
+                    <div id="rules__list" class="rules__attempts_list flex-r">
+
+                    </div>
+                </div>
             </div>
 
-            <div class="settings__group settings__group--chances">
-                <h2 class="settings__group_title">Nombre de tentatives</h2>
-
-                <p class="control has-icon-left">
-                    <input id="attempts" class="input" type="number" placeholder="Nombre" value="10">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-redo"></i>
-                    </span>
-                </p>
+            <div class="message mv-5-xs">
+                <p id="message"></p>
             </div>
 
-            <div class="settings__controls w-full mt-3-xs">
-                <button class="button is-success is-bordered" onclick="launch()">Lancer le jeu</button>
+            <div id="play" class="play mv-auto flex-c">
+                <input id="player-input" class="input play__input" type="number" placeholder="1">
+                <button class="button is-success w-full" onclick="check()">Vérifier</button>
             </div>
 
         </div>
 
-        <div class="play mv-auto flex-c">
-            <input id="player-input" class="input play__input" type="number" placeholder="1">
-            <button class="button is-success w-full" onclick="check()">Vérifier</button>
-        </div>
+    </header>
 
+    <div id="victory" class="result result--victory">
+        <p class="result__message">Vous avez gagné</p>
+        <button class="result__button button is-white is-outlined" onclick="restart()">
+            Relancer le jeu
+        </button>
+    </div>
 
+    <div id="defeat" class="result result--defeat">
+        <p class="result__message">Vous avez perdu</p>
+        <button class="result__button button is-white is-outlined" onclick="restart()">
+            Relancer le jeu
+        </button>
     </div>
 
 </body>

@@ -1,10 +1,49 @@
-.title {
+body {
+  position: relative;
+  font-family: Poppins;
+}
+
+body .header .title {
   font-size: 5rem;
 }
 
-.input {
+body .header .input {
   background-color: #F3F7FD;
   border: 0;
+}
+
+body .result {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body .result__message {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+body .result__button {
+  color: white !important;
+}
+
+body .result__button:hover {
+  color: black !important;
+}
+
+body .result--victory {
+  background-color: green;
+}
+
+body .result--defeat {
+  background-color: red;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -42,10 +81,45 @@ input[type=number] {
   margin-right: 0;
 }
 
+.play {
+  display: none;
+}
+
 .play__input {
   height: 10rem;
   padding: 3rem;
   width: 15rem;
   font-size: 5rem;
   text-align: center;
+}
+
+.rules {
+  display: none;
+  border: 1px solid #F3F7FD;
+}
+
+.rules__parameter {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.rules__parameter_icon {
+  margin-right: .5rem;
+}
+
+.rules__attempts_list div {
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  background-color: green;
+  margin-right: .25rem;
+}
+
+.rules__attempts_list div:last-child {
+  margin-right: 0;
+}
+
+.rules__attempts_list div.used {
+  background-color: red;
 }
