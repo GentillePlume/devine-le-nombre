@@ -5,27 +5,37 @@
     <meta charset="utf-8">
     <title>Devine le nombre !</title>
 
-    <link rel="shortcut icon" type="image/jpg" href="assets/favicon.ico" />
+    <link rel="shortcut icon" type="image/jpg" href="assets/images/logo.png" />
 
-    <link rel="stylesheet" href="ploume.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/ploume.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="fullscreen">
 
-    <header class="header">
+    <header class="header content-centered">
 
-        <div class="container h-full flex-c v-centered">
+        <div class="container flex-c v-centered">
 
-            <h1 class="title uppercase">Devine le nombre</h1>
+            <h1 class="header__title uppercase is-4-s is-3-m is-2-l is-1-xl">Devine le nombre</h1>
+
+        </div>
+
+    </header>
+
+    <main class="main mt-3">
+        <div class="container content-centered">
 
             <div id="settings" class="settings flex-r wrap p-3">
+
                 <h2 class="w-full bold is-3-xs">Paramètres</h2>
 
                 <div class="settings__group settings__group--ladder">
@@ -66,43 +76,57 @@
 
             </div>
 
-            <div id="rules" class="rules flex-r wrap p-3">
-                <h2 class="w-full bold is-3-xs">Règles</h2>
+            <div id="playbox" class="playbox flex-c v-centered">
 
-                <div class="rules__parameter">
-                    <span class="rules__parameter_icon">
-                        <i class="fas fa-long-arrow-alt-down"></i>
-                    </span>
-                    <p id="rules__minimum" class="rules__parameter_value">1</p>
-                </div>
+                <div id="rules" class="playbox__rules flex-r wrap">
 
-                <div class="rules__parameter">
-                    <span class="rules__parameter_icon">
-                        <i class="fas fa-long-arrow-alt-up"></i>
-                    </span>
-                    <p id="rules__maximum" class="rules__parameter_value">100</p>
-                </div>
+                    <div class="playbox__rules_parameter">
 
-                <div class="rules__attempts flex-c">
-                    <h3 class="w-full">Essais</h3>
-                    <div id="rules__list" class="rules__attempts_list flex-r">
+                        <p class="playbox__rules_parameter_label">Minimum</p>
+
+                        <p id="playbox__rules_minimum" class="playbox__rules_parameter_value">1</p>
+
+                        <span class="playbox__rules_parameter_icon">
+                            <i class="fas fa-long-arrow-alt-down"></i>
+                        </span>
 
                     </div>
+
+                    <div class="playbox__rules_parameter">
+
+                        <p class="playbox__rules_parameter_label">Maximum</p>
+
+                        <p id="playbox__rules_maximum" class="playbox__rules_parameter_value">100</p>
+
+                        <span class="playbox__rules_parameter_icon">
+                            <i class="fas fa-long-arrow-alt-up"></i>
+                        </span>
+
+                    </div>
+
+                    <div class="playbox__rules_parameter_attempts flex-c">
+                        <p class="playbox__rules_parameter_label">Tentatives restantes</p>
+                        <div id="playbox__attempts" class="playbox__rules_parameter_attempts flex-r w-full relative">
+                            <p class="absolute" id="attempts"></p>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="message mv-5-xs">
-                <p id="message"></p>
-            </div>
+                <div id="messageBox" class="playbox__messagebox mv-5-xs is-info br-normal p-3">
+                    <p id="message" class="playbox__messagebox_message">Pour jouer un nombre, entrez le dans le champ
+                        ci-dessous et appuyez sur la touche "Entrée".</p>
+                </div>
 
-            <div id="play" class="play mv-auto flex-c">
-                <input id="player-input" class="input play__input" type="number" placeholder="1">
-                <button class="button is-success w-full" onclick="check()">Vérifier</button>
+                <div id="inputbox" class="playbox__inputbox mv-auto flex-c br-normal">
+                    <input id="player-input" class="input playbox__inputbox_input" type="number" placeholder="1">
+                    <button class="button is-success w-full" onclick="check()">Vérifier</button>
+                </div>
+
             </div>
 
         </div>
-
-    </header>
+    </main>
 
     <div id="victory" class="result result--victory">
         <p class="result__message">Vous avez gagné</p>
@@ -124,6 +148,7 @@
 
 <script>
     const player_input = document.getElementById("player-input");
+
     player_input.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
 
