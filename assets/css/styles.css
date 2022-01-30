@@ -91,47 +91,6 @@ input[type=number] {
   color: white;
 }
 
-@keyframes loader {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-.loader {
-  background-color: white;
-  z-index: 1;
-}
-
-.loader__logo {
-  min-width: 20vw;
-  width: 25vw;
-  max-width: 75%;
-}
-
-.loader__progressbar {
-  width: 100%;
-  max-width: 20rem;
-  height: 1rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  background-color: #F3F7FD;
-}
-
-.loader__progressbar--progression {
-  width: 0%;
-  height: 100%;
-  background-color: green;
-  transition: width .1s ease-in-out;
-  animation: loader;
-  animation-duration: 2s;
-  animation-delay: .5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-
 .playbox__rules {
   display: none;
 }
