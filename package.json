@@ -4,22 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
-    "build-autoprefix": "postcss --use autoprefixer --map false --output styles.css styles.css",
-    "build-cleancss": "cleancss -o styles.css styles.css",
+    "build": "npm run assets && npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output assets/css/styles.css assets/css/styles.css",
+    "build-cleancss": "cleancss -o assets/css/styles.css assets/css/styles.css",
     "build-clean": "rimraf css",
-    "build-sass": "node-sass --output-style expanded sass/styles.sass styles.css",
+    "build-sass": "node-sass --output-style expanded sass/styles.sass assets/css/styles.css",
     "deploy": "npm run build",
-    "start": "npm run build-sass -- --watch",
-    "keppler": "keppler"
+    "watch": "npm run build-sass -- --watch",
+    "assets": "rimraf dist && mkdir dist && mkdir dist/css && copyfiles -f src/fonts/* dist/fonts && copyfiles -f src/css/* dist/css && copyfiles -f src/js/* dist/js && copyfiles -f src/images/* dist/images"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "clean-css-cli": "^4.3.0",
-    "keppler": "^1.4.3",
     "node-sass": "^6.0.1",
     "postcss-cli": "^7.1.2",
-    "rimraf": "^2.7.1"
+    "rimraf": "^2.7.1",
+    "copyfiles": "^2.4.1"
   },
   "repository": {
     "type": "git",
