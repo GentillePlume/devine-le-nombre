@@ -13,7 +13,7 @@ let settings_verification_attempts = false;
 
 function update_settings() {
   // MIN VALUE CHECK
-  console.log("----- 🔍Settings verification 🔎 -----");
+  console.log("----- 🔍 Settings verification 🔎 -----");
 
   ladder_min = parseInt(document.getElementById("settings__minimum").value);
   ladder_max = parseInt(document.getElementById("settings__maximum").value);
@@ -102,11 +102,14 @@ function launch() {
   update_settings();
 
   if (settings_verification) {
+    document.getElementById("inputbox").style.display = "flex";
+    document.getElementById("body").classList.remove("settings-mode");
+    document.getElementById("body").classList.add("playing-mode");
+
     lock_settings();
     generate_number();
     generate_rules();
     generate_sendMessage();
-    document.getElementById("inputbox").style.display = "flex";
   }
 }
 
