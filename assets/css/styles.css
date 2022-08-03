@@ -2,16 +2,32 @@
   border-radius: 0.25rem;
 }
 
-body {
+.body {
   position: relative;
   font-family: "Poppins", sans-serif;
 }
 
-body .main {
+.body .overlay {
+  background-color: #1B3A4B;
+  opacity: .85;
+}
+
+.body .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.body .main {
   max-height: calc(100vh - 10rem);
 }
 
-body .result {
+.body .result {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -23,25 +39,25 @@ body .result {
   height: 100vh;
 }
 
-body .result__message {
+.body .result__message {
   color: white;
   font-size: 2rem;
   font-weight: bold;
 }
 
-body .result__button {
+.body .result__button {
   color: white !important;
 }
 
-body .result__button:hover {
+.body .result__button:hover {
   color: black !important;
 }
 
-body .result--victory {
+.body .result--victory {
   background-color: green;
 }
 
-body .result--defeat {
+.body .result--defeat {
   background-color: red;
 }
 
@@ -57,28 +73,63 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.box {
+  border: 2px solid #F3F7FD;
+  max-width: 35rem;
+  padding: 1.5rem;
+  background-color: #EF4D4D;
+  border: 0.75rem solid #272640;
+  color: white;
+}
+
 .settings {
   border: 2px solid #F3F7FD;
   max-width: 35rem;
+  background-color: #EF4D4D;
+  border: 0.75rem solid #272640;
+  color: white;
+}
+
+.settings__title {
+  text-transform: uppercase;
 }
 
 .settings__group {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+  row-gap: .25rem;
+  width: 100%;
 }
 
 .settings__group_title {
   width: 100%;
-  margin-bottom: .5rem;
+  grid-column: 1 / span 2;
+}
+
+.settings__group .control {
+  width: 100%;
 }
 
 .settings__group .control .input {
-  border-radius: .25rem;
-  margin-right: .5rem;
+  width: 100%;
+  border: 0;
+  box-shadow: 0.15rem 0.15rem 0 0 #272640;
 }
 
-.settings__group .control .input:last-child {
-  margin-right: 0;
+.settings__controls .button {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+
+.settings__controls .button:hover {
+  border: 2px solid transparent;
+  background-color: white;
+  color: #1B3A4B;
 }
 
 .header {
@@ -89,6 +140,10 @@ input[type=number] {
 .header__title {
   font-weight: bold;
   color: white;
+}
+
+.playbox {
+  display: none;
 }
 
 .playbox__rules {

@@ -91,6 +91,7 @@ function removeAttempt() {
 function lock_settings() {
   // document.getElementsByClassName("settings")[0].classList.add("disabled");
   document.getElementsByClassName("settings")[0].style.display = "none";
+  document.getElementsByClassName("playbox")[0].style.display = "flex";
 }
 
 function generate_number() {
